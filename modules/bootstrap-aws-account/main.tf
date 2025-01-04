@@ -21,6 +21,11 @@ locals {
       name             = "local"
       provider_source  = "hashicorp/local"
       provider_version = coalesce(var.override_local_provider_version, "2.5.2")
+    },
+    {
+      name             = "local"
+      provider_source  = "integrations/github"
+      provider_version = coalesce(var.override_local_provider_version, "6.4.0")
     }
   ])
 }
