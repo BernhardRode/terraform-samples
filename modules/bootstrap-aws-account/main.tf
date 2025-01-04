@@ -23,7 +23,7 @@ locals {
       provider_version = coalesce(var.override_local_provider_version, "2.5.2")
     },
     {
-      name             = "local"
+      name             = "github"
       provider_source  = "integrations/github"
       provider_version = coalesce(var.override_local_provider_version, "6.4.0")
     }
