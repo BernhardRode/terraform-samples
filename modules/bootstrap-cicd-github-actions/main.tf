@@ -84,7 +84,7 @@ data "aws_iam_policy_document" "github_actions_write_assume_role_policy" {
 
     # Condition to limit to commits to the main branch
     condition {
-      test     = "StringEquals"
+      test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
       values = [
         "repo:${var.github_organization}/${var.github_repository}:*"
@@ -137,7 +137,7 @@ data "aws_iam_policy_document" "github_actions_read_assume_role_policy" {
 
     # Condition to limit to pull requests
     condition {
-      test     = "StringEquals"
+      test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
       values = [
         "repo:${var.github_organization}/${var.github_repository}:*"
