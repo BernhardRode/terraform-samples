@@ -87,7 +87,7 @@ data "aws_iam_policy_document" "github_actions_write_assume_role_policy" {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
       values = [
-        "repo:${var.github_organization}/${var.github_repository}:ref:refs/heads/${local.repository_default_branch_name}"
+        "repo:${var.github_organization}/${var.github_repository}:*"
       ]
     }
   }
@@ -140,9 +140,7 @@ data "aws_iam_policy_document" "github_actions_read_assume_role_policy" {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
       values = [
-        "repo:${var.github_organization}/${var.github_repository}:pull_request",
-        "repo:${var.github_organization}/${var.github_repository}:ref/pull/*",
-        "repo:${var.github_organization}/${var.github_repository}:*" # ref:refs/heads/${local.repository_default_branch_name}"
+        "repo:${var.github_organization}/${var.github_repository}:*"
       ]
     }
     # # Condition to limit to pull requests targeting 'main' branch
