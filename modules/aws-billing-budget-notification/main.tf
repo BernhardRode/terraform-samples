@@ -9,7 +9,7 @@ locals {
 }
 
 #-----------------------------------#
-# Set up a Budget and Billing aleart
+# Set up a Budget and Billing alert
 #-----------------------------------#
 resource "aws_budgets_budget" "total_spend" {
   name         = "budget-monthly"
